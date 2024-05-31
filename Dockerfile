@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-RUN apt update && apt install curl tar libdigest-sha-perl sudo -y && apt clean
+RUN apt update && apt install curl tar libdigest-sha-perl python3 python3-pip sudo -y && apt clean
 RUN useradd -m runner && echo "runner:runner" | chpasswd && adduser runner sudo
 WORKDIR /actions-runner
 RUN curl -o actions-runner-linux-x64-2.315.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.315.0/actions-runner-linux-x64-2.315.0.tar.gz && \
